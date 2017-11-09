@@ -1,1 +1,3 @@
 /j2se-maven-module-examples/target/
+.idea
+*.iml
