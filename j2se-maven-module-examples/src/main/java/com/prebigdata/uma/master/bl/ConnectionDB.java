@@ -32,12 +32,12 @@ public class ConnectionDB {
     
     private static MongoClientURI getMongoClientUri() {
         MongoClientURI mongoClientURI = null;
-        String databaseHost = "<HOST>";
-        String databasePort = "<PORT>";
+        String databaseHost = "localhost";
+        String databasePort = "27017";
         
         try {
                
-             mongoClientURI = new MongoClientURI("mongodb://"+ databaseHost + ":" + databasePort + "/admin?maxPoolSize=100&minPoolSize=5&maxIdleTimeMS=10000");
+             mongoClientURI = new MongoClientURI("mongodb://"+ databaseHost + ":" + databasePort + "/masterbigdata");
 
         } catch(Exception ex) {
             System.out.println(ex);

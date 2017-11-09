@@ -1,7 +1,9 @@
 package com.prebigdata.uma.master.main;
 
 import com.prebigdata.uma.master.bl.ClientBL;
+import com.prebigdata.uma.master.bl.SensorMeasureBL;
 import com.prebigdata.uma.master.domain.ClientDTO;
+import com.prebigdata.uma.master.domain.SensorMeasureDTO;
 import com.prebigdata.uma.master.domain.searcher.ClientSearcherDTO;
 import java.util.List;
 
@@ -9,7 +11,21 @@ import java.util.List;
 public class Main {
     
     public static void main(String[] args) throws Exception {
-        
+        //insertSensorMeasure();
+        //searchClients();
+        insertSensorMeasure();
+        System.out.println("INSERTADO CORRECTAMENTE");
+    }
+
+    public static void insertSensorMeasure() throws Exception {
+        SensorMeasureDTO aSensorToInsert = new SensorMeasureDTO();
+        aSensorToInsert.setAltitude(800.0);
+        aSensorToInsert.setNetworkType("EDGE");
+        aSensorToInsert.setTemperature((float) 30.5);
+
+        SensorMeasureBL sensorMeasureBL = new SensorMeasureBL();
+
+        sensorMeasureBL.insertSensorMeasure(aSensorToInsert);
     }
     
     public static void insertClient() throws Exception {
