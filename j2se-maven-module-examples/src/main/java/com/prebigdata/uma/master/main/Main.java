@@ -5,6 +5,7 @@ import com.prebigdata.uma.master.bl.ParkingBL;
 import com.prebigdata.uma.master.bl.SensorMeasureBL;
 import com.prebigdata.uma.master.domain.ClientDTO;
 import com.prebigdata.uma.master.domain.ParkingDTO;
+import com.prebigdata.uma.master.domain.SensorAggregationDTO;
 import com.prebigdata.uma.master.domain.SensorMeasureDTO;
 import com.prebigdata.uma.master.domain.searcher.ClientSearcherDTO;
 import org.mongodb.morphia.geo.GeoJson;
@@ -19,9 +20,17 @@ public class Main {
         //insertSensorMeasure();
         //searchClients();
         //insertSensorMeasure();
-        getNearParkingToPoint();
+        //getNearParkingToPoint();
+        //getTemperatureMeanOfSensors();
     }
 
+    public static void getTemperatureMeanOfSensors() throws Exception {
+        SensorMeasureBL sensorMeasureBL = new SensorMeasureBL();
+
+        SensorAggregationDTO sensorAggregationDTO = sensorMeasureBL.getSensorMeasureWithTemperatureMean();
+
+        System.out.println("La temperatura media de los sensores es de " + sensorAggregationDTO.getMeanTemperature());
+    }
     public static void getNearParkingToPoint() {
         ParkingBL parkingBL = new ParkingBL();
         Point myPoint = GeoJson.point(36.73, -4.41784098744392);
